@@ -12,17 +12,17 @@ stage ('Checkout') {
       
       stage ('Maven Build') {
                         
-                        steps {
+                       
                             
-                            bat 'mvn test'
-                        }
+                            bat 'mvn test' }
+                       
 						post {
                 success {
                     junit 'target/surefire-reports/**/*.xml' 
                 }}
                         
                         
-                    }
+                    
                     }
                     
 
