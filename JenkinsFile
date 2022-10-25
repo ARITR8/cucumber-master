@@ -16,10 +16,7 @@ stage ('Checkout') {
                             
                             bat 'mvn test' }
                        
-						post {
-                success {
-                    junit 'target/surefire-reports/**/*.xml' 
-                }}
+			
                         
                         
                     
