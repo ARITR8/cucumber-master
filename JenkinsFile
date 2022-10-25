@@ -1,0 +1,20 @@
+stage 'Init'
+
+stage ('Checkout') {
+          checkout scm
+      }
+      
+      stage ('Maven Build') {
+                        
+                        steps {
+                            
+                            bat 'mvn test'
+                        }
+						post {
+                success {
+                    junit 'target/surefire-reports/**/*.xml' 
+                }}
+                        
+                        
+                    }
+
