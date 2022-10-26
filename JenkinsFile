@@ -2,7 +2,7 @@ stage 'Init'
 
 
 
-//node ('JenkinsSlaveWindow') {
+node ('xx-node') {
                     
                 
 
@@ -32,6 +32,6 @@ stage ('Checkout') {
               
                         
                     
-  //                  }
+                 }
                     
 
