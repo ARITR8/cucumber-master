@@ -30,8 +30,20 @@ stage ('Checkout') {
         
 			
                           }
+                          
+               stage('Html report') {
+         
+            publishHTML target: [
+                reportName: 'Test',
+                reportDir: 'target',
+                reportFiles: 'cucumber/index.html', 
+             
+                keepAll: true,
+                alwaysLinkToLastBuild: true,
+                allowMissing: false
+            ]               
               
-                        
+                 }       
                     
                  }
                     
