@@ -22,8 +22,8 @@ stage ('Checkout') {
 		
 			    cucumber buildStatus: 'UNSTABLE',
 			    
-			    fileIncludePattern: '**/cucumber.json',
-			    jsonReportDirectory: 'target'
+			    fileIncludePattern: '**/cucumber.json'
+			 //   jsonReportDirectory: 'target'
 			
 
                               
