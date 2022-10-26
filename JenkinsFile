@@ -2,7 +2,7 @@ stage 'Init'
 
 
 
-node ('JenkinsSlaveWindow') {
+//node ('JenkinsSlaveWindow') {
                     
                 
 
@@ -17,9 +17,21 @@ stage ('Checkout') {
                             bat 'mvn test' }
                        
 			
-                        
+          stage('Cucumber Reports') {
+        
+			steps {
+			    cucumber buildStatus: "UNSTABLE",
+			    fileIncludePattern: "**/cucumber.json",
+			    jsonReportDirectory: 'target'
+			}
+
+                              
+        
+			
+                          }
+              
                         
                     
-                    }
+  //                  }
                     
 
