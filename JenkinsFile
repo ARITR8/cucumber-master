@@ -20,8 +20,9 @@ stage ('Checkout') {
           stage('Cucumber Reports') {
         
 		
-			    cucumber buildStatus: "UNSTABLE",
-			    fileIncludePattern: "**/cucumber.json",
+			    cucumber buildStatus: 'UNSTABLE',
+			    
+			    fileIncludePattern: '**/cucumber.json',
 			    jsonReportDirectory: 'target'
 			
 
