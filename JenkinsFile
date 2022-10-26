@@ -2,7 +2,7 @@ stage 'Init'
 
 
 
-node ('JenkinsSlaveWindow') {
+node ('xxnode') {
                     
                 
 
