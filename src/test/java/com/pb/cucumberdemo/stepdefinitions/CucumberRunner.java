@@ -19,7 +19,7 @@ import org.junit.runner.RunWith;
 		features = {"src/test/resources/features"},
 		glue={"com.pb.cucumberdemo.stepdefinitions"},
 		monochrome = true,
-		tags = {"@datetest"},
+	//	tags = {"@datetest"},
 		dryRun = false,
 		strict = true
 		)
