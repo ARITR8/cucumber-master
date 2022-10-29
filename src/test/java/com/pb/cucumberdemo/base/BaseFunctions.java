@@ -24,7 +24,7 @@ public class BaseFunctions
 	public static Properties envConfig = null;
 	public static FileInputStream input = null;
 
-	public static WebDriver driver = null;
+	public static RemoteWebDriver driver = null;
 	public static boolean isInitialized = false;
 	public static boolean isBrowserOpened = false;
 	
@@ -56,26 +56,26 @@ public class BaseFunctions
 	 * @date: 15th April 2017
 	 * Description: This will Open Browser
 	 */
-	public void openBrowser() 
-	{
-		if (!isBrowserOpened) 
-		{
-			System.out.print("User directory is:"+System.getProperty("user.dir"));
-			System.out.print("Value of property:"+envConfig.getProperty("Browser"));
-			if (envConfig.getProperty("Browser").equalsIgnoreCase("Chrome")) 
-			{
-				ChromeOptions options = new ChromeOptions();
-				options.addArguments("start-maximized");
-				
-                System.setProperty("webdriver.chrome.driver", Constants.CHROME_EXE);
-              //  driver = new ChromeDriver();
-			}  
-			
-		}	
-
-		driver.manage().timeouts().implicitlyWait(Long.parseLong(envConfig.getProperty("Implicit_Wait")), TimeUnit.SECONDS);
-		driver.manage().window().maximize();
-	}		
+//	public void openBrowser() 
+//	{
+//		if (!isBrowserOpened) 
+//		{
+//			System.out.print("User directory is:"+System.getProperty("user.dir"));
+//			System.out.print("Value of property:"+envConfig.getProperty("Browser"));
+//			if (envConfig.getProperty("Browser").equalsIgnoreCase("Chrome")) 
+//			{
+//				ChromeOptions options = new ChromeOptions();
+//				options.addArguments("start-maximized");
+//				
+//                System.setProperty("webdriver.chrome.driver", Constants.CHROME_EXE);
+//              //  driver = new ChromeDriver();
+//			}  
+//			
+//		}	
+//
+//	//	driver.manage().timeouts().implicitlyWait(Long.parseLong(envConfig.getProperty("Implicit_Wait")), TimeUnit.SECONDS);
+//	//	driver.manage().window().maximize();
+//	}		
 	
 /*** added for Selenium grid implementation**/
 	
@@ -85,7 +85,7 @@ public class BaseFunctions
 		{
 			System.out.print("User directory is:"+System.getProperty("user.dir"));
 			System.out.print("Value of property:"+envConfig.getProperty("Browser"));
-			if (envConfig.getProperty("Browser").equalsIgnoreCase("Edge")) 
+			if (envConfig.getProperty("Browser").equalsIgnoreCase("Chrome")) 
 			{
 				ChromeOptions chromeOptions = new ChromeOptions();
 				EdgeOptions options = new EdgeOptions();
@@ -96,7 +96,10 @@ public class BaseFunctions
 				
 		//		WebDriver driver;
 				try {
-					this.driver = new RemoteWebDriver(new URL("http://52.14.5.115:4444"), options);
+					
+					System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+				driver = new RemoteWebDriver(new URL("http://52.14.5.115:4444/"), new EdgeOptions());
+				System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
 				//	driver.get("http://www.google.com");
 					//driver.quit();
 				} catch (MalformedURLException e) {
@@ -109,8 +112,8 @@ public class BaseFunctions
 			
 		}	
 
-		driver.manage().timeouts().implicitlyWait(Long.parseLong(envConfig.getProperty("Implicit_Wait")), TimeUnit.SECONDS);
-		driver.manage().window().maximize();
+	//	driver.manage().timeouts().implicitlyWait(Long.parseLong(envConfig.getProperty("Implicit_Wait")), TimeUnit.SECONDS);
+	//	driver.manage().window().maximize();
 	}		
 	
 /*** code block for Selenium grid implementation ends here**/
