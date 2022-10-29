@@ -2,7 +2,7 @@ stage 'Init'
 
 
 
-node ('xx-node') {
+node ('xxnode') {
                     
                 
 
