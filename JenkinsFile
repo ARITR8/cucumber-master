@@ -15,7 +15,7 @@ stage ('Checkout') {
                        
                             
                             //bat 'mvn test'
-                            mvn test
+                         sh mvn test
                             
                              }
                        
