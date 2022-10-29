@@ -12,10 +12,11 @@ stage ('Checkout') {
       
       stage ('Maven Build') {
                         
-                       
+                       echo $M2_HOME
+echo $PATH
                             
                             //bat 'mvn test'
-                         sh mvn test
+                         mvn test
                             
                              }
                        
