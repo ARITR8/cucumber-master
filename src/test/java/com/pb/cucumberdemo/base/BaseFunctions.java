@@ -4,6 +4,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -12,6 +14,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.pb.cucumberdemo.utils.ConfigUtil;
 
@@ -64,7 +68,7 @@ public class BaseFunctions
 				options.addArguments("start-maximized");
 				
                 System.setProperty("webdriver.chrome.driver", Constants.CHROME_EXE);
-                driver = new ChromeDriver();
+              //  driver = new ChromeDriver();
 			}  
 			
 		}	
@@ -72,6 +76,44 @@ public class BaseFunctions
 		driver.manage().timeouts().implicitlyWait(Long.parseLong(envConfig.getProperty("Implicit_Wait")), TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 	}		
+	
+/*** added for Selenium grid implementation**/
+	
+	public void openRemoteBrowser() 
+	{
+		if (!isBrowserOpened) 
+		{
+			System.out.print("User directory is:"+System.getProperty("user.dir"));
+			System.out.print("Value of property:"+envConfig.getProperty("Browser"));
+			if (envConfig.getProperty("Browser").equalsIgnoreCase("Edge")) 
+			{
+				ChromeOptions chromeOptions = new ChromeOptions();
+				EdgeOptions options = new EdgeOptions();
+				chromeOptions.setCapability("browserVersion", "67");
+			//	options.setCapability("browserVersion", "107");
+		//		chromeOptions.setCapability("platformName", "Windows XP");
+				
+				
+		//		WebDriver driver;
+				try {
+					this.driver = new RemoteWebDriver(new URL("http://52.14.5.115:4444"), options);
+				//	driver.get("http://www.google.com");
+					//driver.quit();
+				} catch (MalformedURLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				  
+			}  
+			
+		}	
+
+		driver.manage().timeouts().implicitlyWait(Long.parseLong(envConfig.getProperty("Implicit_Wait")), TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+	}		
+	
+/*** code block for Selenium grid implementation ends here**/
 	
 	
 	/**
