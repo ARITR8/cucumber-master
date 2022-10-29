@@ -14,7 +14,10 @@ stage ('Checkout') {
                         
                        
                             
-                            bat 'mvn test' }
+                            //bat 'mvn test'
+                            mvn test
+                            
+                             }
                        
 			
           stage('Cucumber Reports') {
