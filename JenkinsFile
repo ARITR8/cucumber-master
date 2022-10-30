@@ -16,7 +16,7 @@ stage ('Checkout') {
 					//	echo $PATH
                             
                          //  bat 'mvn test'
-                         mvn test
+                        sh 'mvn test'
                             
                              }
                        
