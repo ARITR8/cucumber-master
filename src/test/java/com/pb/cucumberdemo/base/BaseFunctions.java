@@ -98,7 +98,7 @@ public class BaseFunctions
 				try {
 					
 					System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
-				driver = new RemoteWebDriver(new URL("http://52.14.5.115:4444/"), new EdgeOptions());
+				driver = new RemoteWebDriver(new URL("http://3.138.169.141:4444/"), new EdgeOptions());
 				System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
 				//	driver.get("http://www.google.com");
 					//driver.quit();
