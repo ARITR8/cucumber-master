@@ -2,7 +2,7 @@ stage 'Init'
 
 
 
-node ('xxnode') {
+node ('xx-node') {
                     
                 
 
@@ -12,11 +12,11 @@ stage ('Checkout') {
       
       stage ('Maven Build') {
                         
-                       echo $M2_HOME
-echo $PATH
+                  //   echo $M2_HOME
+					//	echo $PATH
                             
-                            //bat 'mvn test'
-                         mvn test
+                           bat 'mvn test'
+                      //   mvn test
                             
                              }
                        
