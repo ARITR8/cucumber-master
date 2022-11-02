@@ -53,6 +53,7 @@ stage ('Checkout') {
  stage ('Send Email') {
  //DATE_TAG = java.time.LocalDate.now()
         echo "Mail Stage";
+        archiveArtifacts artifacts: "target/cucumber/index.html"
         DATE_TAG = java.time.LocalDate.now()
         DATETIME_TAG = String.format('%tF %<tH:%<tM', java.time.LocalDateTime.now())
 
