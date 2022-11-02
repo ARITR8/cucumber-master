@@ -59,9 +59,7 @@ stage ('Checkout') {
 
 
 emailext attachLog: true,  attachmentsPattern: '**/**/cucumber-html-reports/overview-features.html',//cucumber-html-reports/overview-features.html
-presendScript: '''def reportPath = build.getWorkspace().child("**/**/cucumber-html-reports/overview-features.html")
-
- msg.setContent(reportPath.readToString(), "text/html");''' , 
+ 
 body: '''${SCRIPT, template="g.template"}''', compressLog: true, subject: 'Test Execution Report',
 mimeType: 'text/html', to: 'aritradas75@gmail.com'
 
