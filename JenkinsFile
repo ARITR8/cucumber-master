@@ -60,7 +60,7 @@ stage ('Checkout') {
         DATETIME_TAG = String.format('%tF %<tH:%<tM', java.time.LocalDateTime.now())
 
 
-emailext attachLog: true,  attachmentsPattern: 'sample.pdf',//cucumber-html-reports/overview-features.html
+emailext attachLog: true,  attachmentsPattern: '''"sample.pdf" , "sample.xlsx"''' ,//cucumber-html-reports/overview-features.html
 //attachmentsPattern: 'sample.xlsx',
  
 body: '''${SCRIPT, template="g.template"}''', compressLog: true, subject: 'Test Execution Report',
