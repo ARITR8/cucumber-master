@@ -58,11 +58,9 @@ stage ('Checkout') {
         DATETIME_TAG = String.format('%tF %<tH:%<tM', java.time.LocalDateTime.now())
 
 
-emailext attachLog: true, attachmentsPattern: 'target/cucumber/index.html', body: '''${SCRIPT, template="groovy-html.template"}''', 
+emailext attachLog: true, attachmentsPattern: 'target/cucumber/index.html', body: readFile("email.html"), 
 
-presendScript: '''File sourceFile = new File("Formatter.groovy");
-    Class groovyClass = new GroovyClassLoader(getClass().getClassLoader()).parseClass(sourceFile);
-    GroovyObject jiveFormatter = (GroovyObject) groovyClass.newInstance();''',
+
 
  compressLog: true, subject: 'Test Execution Report', to: 'aritradas75@gmail.com'
 
