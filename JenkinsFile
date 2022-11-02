@@ -53,12 +53,15 @@ stage ('Checkout') {
  stage ('Send Email') {
  //DATE_TAG = java.time.LocalDate.now()
         echo "Mail Stage";
-        archiveArtifacts artifacts: "target/cucumber/index.html"
+      //  archiveArtifacts artifacts: "target/cucumber/index.html"
+      //  archiveArtifacts artifacts: "sample.pdf"
+       // archiveArtifacts artifacts: "sample.xlsx"
         DATE_TAG = java.time.LocalDate.now()
         DATETIME_TAG = String.format('%tF %<tH:%<tM', java.time.LocalDateTime.now())
 
 
-emailext attachLog: true,  attachmentsPattern: '**/**/cucumber-html-reports/overview-features.html',//cucumber-html-reports/overview-features.html
+emailext attachLog: true,  attachmentsPattern: 'sample.pdf',//cucumber-html-reports/overview-features.html
+attachmentsPattern: 'sample.xlsx',
  
 body: '''${SCRIPT, template="g.template"}''', compressLog: true, subject: 'Test Execution Report',
 mimeType: 'text/html', to: 'aritradas75@gmail.com'
