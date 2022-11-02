@@ -9,15 +9,22 @@ import java.net.URL;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.junit.BeforeClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.net.PortProber;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.pb.cucumberdemo.utils.ConfigUtil;
+
+import cucumber.api.cli.Main;
+import cucumber.api.java.Before;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseFunctions 
 {
@@ -27,6 +34,8 @@ public class BaseFunctions
 	public static RemoteWebDriver driver = null;
 	public static boolean isInitialized = false;
 	public static boolean isBrowserOpened = false;
+	
+	public static URL seleniumServerUrl = null;
 	
 	
 	/**
@@ -56,30 +65,7 @@ public class BaseFunctions
 	 * @date: 15th April 2017
 	 * Description: This will Open Browser
 	 */
-//	public void openBrowser() 
-//	{
-//		if (!isBrowserOpened) 
-//		{
-//			System.out.print("User directory is:"+System.getProperty("user.dir"));
-//			System.out.print("Value of property:"+envConfig.getProperty("Browser"));
-//			if (envConfig.getProperty("Browser").equalsIgnoreCase("Chrome")) 
-//			{
-//				ChromeOptions options = new ChromeOptions();
-//				options.addArguments("start-maximized");
-//				
-//                System.setProperty("webdriver.chrome.driver", Constants.CHROME_EXE);
-//              //  driver = new ChromeDriver();
-//			}  
-//			
-//		}	
-//
-//	//	driver.manage().timeouts().implicitlyWait(Long.parseLong(envConfig.getProperty("Implicit_Wait")), TimeUnit.SECONDS);
-//	//	driver.manage().window().maximize();
-//	}		
-	
-/*** added for Selenium grid implementation**/
-	
-	public void openRemoteBrowser() 
+	public void openBrowser() 
 	{
 		if (!isBrowserOpened) 
 		{
@@ -87,24 +73,82 @@ public class BaseFunctions
 			System.out.print("Value of property:"+envConfig.getProperty("Browser"));
 			if (envConfig.getProperty("Browser").equalsIgnoreCase("Chrome")) 
 			{
+				ChromeOptions options = new ChromeOptions();
+				options.addArguments("start-maximized");
+				
+                System.setProperty("webdriver.chrome.driver", Constants.CHROME_EXE);
+               driver = new ChromeDriver();
+			}  
+			
+		}	
+
+	//	driver.manage().timeouts().implicitlyWait(Long.parseLong(envConfig.getProperty("Implicit_Wait")), TimeUnit.SECONDS);
+		//driver.manage().window().maximize();
+	}		
+	
+/*** added for Selenium grid implementation**/
+	
+@BeforeClass
+	static void setupAll() throws MalformedURLException {
+	 //   int port = PortProber.findFreePort();
+	    int port = 4444;
+	    
+	    System.out.println("jlkjjjjjjjjjjjjjjjjjj" + port);
+	//    WebDriverManager.edgedriver().setup();
+	   
+	    try {
+			Main.main(
+			        new String[] { "standalone"});
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+
+	    seleniumServerUrl = new URL(
+	            "http://localhost:4444"); 
+	    
+	    System.out.println("jlkjjjjjjjjjjjjjjjjjj" + seleniumServerUrl);
+	    
+	    
+	}
+	
+	
+	
+	
+	public void openRemoteBrowser() 
+	{
+		if (!isBrowserOpened) 
+		{
+			System.out.print("User directory is:"+System.getProperty("user.dir"));
+			System.out.print("Value of property:"+envConfig.getProperty("Browser"));
+			
+			
+			 DesiredCapabilities dc = new DesiredCapabilities();
+			    dc.setCapability("browserName", "MicrosoftEdge");
+			
+			
+			if (envConfig.getProperty("Browser").equalsIgnoreCase("Chromedddddd")) 
+			{
 				ChromeOptions chromeOptions = new ChromeOptions();
-				EdgeOptions options = new EdgeOptions();
+		//		EdgeOptions options = new EdgeOptions();
 				chromeOptions.setCapability("browserVersion", "67");
 			//	options.setCapability("browserVersion", "107");
 		//		chromeOptions.setCapability("platformName", "Windows XP");
 				
 				
 		//		WebDriver driver;
-				try {
+			//	try {
 					
 					System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
-				driver = new RemoteWebDriver(new URL("http://3.138.169.141:4444/"), new EdgeOptions());
+			//	driver = new RemoteWebDriver(new URL("http://3.138.169.141:4444/"), new EdgeOptions());
+					driver = new RemoteWebDriver(seleniumServerUrl, dc);
+					   System.out.println("jlkjjjjjjjjjjjjjjjjjj" + seleniumServerUrl);
 				System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
 				//	driver.get("http://www.google.com");
 					//driver.quit();
-				} catch (MalformedURLException e) {
+			//	} catch (MalformedURLException e) {
 					// TODO Auto-generated catch block
-					e.printStackTrace();
+			//.printStackTrace();
 				}
 				
 				  
@@ -114,7 +158,7 @@ public class BaseFunctions
 
 	//	driver.manage().timeouts().implicitlyWait(Long.parseLong(envConfig.getProperty("Implicit_Wait")), TimeUnit.SECONDS);
 	//	driver.manage().window().maximize();
-	}		
+			
 	
 /*** code block for Selenium grid implementation ends here**/
 	

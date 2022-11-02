@@ -15,8 +15,8 @@ stage ('Checkout') {
                   //   echo $M2_HOME
 					//	echo $PATH
                             
-                         //  bat 'mvn test'
-                        sh 'mvn test'
+                         bat 'mvn test'
+                     //   sh 'mvn test'
                             
                              }
                        

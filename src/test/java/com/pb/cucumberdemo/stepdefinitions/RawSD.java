@@ -13,7 +13,7 @@ public class RawSD extends BaseFunctions
 	public void beforeScenario()
 	{
 		base.Initialize();
-		base.openRemoteBrowser();		
+		base.openBrowser();		
 	}
 	
 	@After
