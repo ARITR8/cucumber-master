@@ -58,7 +58,7 @@ stage ('Checkout') {
         DATETIME_TAG = String.format('%tF %<tH:%<tM', java.time.LocalDateTime.now())
 
 
-emailext attachLog: true, attachmentsPattern: 'target/cucumber/index.html',body: '''${SCRIPT, template="groovy-html.template"}''', compressLog: true, subject: 'Test Execution Report',
+emailext attachLog: true, attachmentsPattern: 'target/cucumber/index.html',body: '''${SCRIPT, template="email-html.template"}''', compressLog: true, subject: 'Test Execution Report',
 mimeType: 'text/html', to: 'aritradas75@gmail.com'
 
 
