@@ -63,7 +63,8 @@ stage ('Checkout') {
 emailext attachLog: true,  attachmentsPattern: 'sample.pdf , sample.xlsx',//cucumber-html-reports/overview-features.html
 //attachmentsPattern: 'sample.xlsx',
  //${SCRIPT, template="g.template"} ,
-body: '${FILE , path= "email.html.groovy"}', compressLog: true, subject: 'Test Execution Report',
+body: 'Please find E-E Selenium scripts report file:'+'Result.html attached with this email',
+ compressLog: true, subject: 'Test Execution Report',
 mimeType: 'text/html', to: 'aritradas75@gmail.com'
 
 
