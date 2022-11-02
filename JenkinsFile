@@ -49,16 +49,20 @@ stage ('Checkout') {
               
                  }
                  
-                 post {
-    always {
-      echo 'I will always execute this!'
-      
-      
-      emailext body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}",
-                recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
-                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}" 
-    }
-  } }       
+ stage ('Send Email') {
+        echo "Mail Stage";
+
+         mail to: "aritradas75@gmail.com",
+        // cc: 'manager@domainxxx.com', charset: 'UTF-8', 
+         from: 'noreply@domainxxx.com', mimeType: 'text/html', replyTo: '', 
+         bcc: '',
+         subject: "CI: Project name -> ${env.JOB_NAME}",
+         body: "<b>Example</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}";
+    } 
+    
+    
+    
+    }       
                     
                 
                     
