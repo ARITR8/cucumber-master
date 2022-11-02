@@ -150,7 +150,7 @@
 
 <% 
 try {
-def cucumberResult = it.getAction("net.masterthought.jenkins.CucumberReportPublisher")
+def cucumberResult = it.getAction("org.jenkinsci.plugins.net.masterthought.jenkins.CucumberReportPublisher")
 <table class="section">
     <tr class="tr-title">
       <td class="td-title" colspan="5">cucumberResult.buildStatus</td>
