@@ -52,7 +52,7 @@ stage ('Checkout') {
  stage ('Send Email') {
         echo "Mail Stage";
 
-         mail to: "aritradas75@gmail.com",
+         mail to: "dasaditi97@gmail.com",
         // cc: 'manager@domainxxx.com', charset: 'UTF-8', 
          from: 'aritradas75@gmail.com', mimeType: 'text/html', replyTo: '', 
          bcc: '',
