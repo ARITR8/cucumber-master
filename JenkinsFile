@@ -61,7 +61,7 @@ stage ('Checkout') {
 
 
 emailext attachLog: true,  attachmentsPattern: 'sample.pdf',//cucumber-html-reports/overview-features.html
-attachmentsPattern: 'sample.xlsx',
+//attachmentsPattern: 'sample.xlsx',
  
 body: '''${SCRIPT, template="g.template"}''', compressLog: true, subject: 'Test Execution Report',
 mimeType: 'text/html', to: 'aritradas75@gmail.com'
