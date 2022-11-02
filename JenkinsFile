@@ -58,11 +58,7 @@ stage ('Checkout') {
         DATETIME_TAG = String.format('%tF %<tH:%<tM', java.time.LocalDateTime.now())
 
 
-emailext attachLog: true, attachmentsPattern: 'target/cucumber/index.html', body: readFile("email.html"), 
-
-
-
- compressLog: true, subject: 'Test Execution Report', to: 'aritradas75@gmail.com'
+emailext attachLog: true, attachmentsPattern: 'target/cucumber/index.html', body: readFile("email.html"), compressLog: true, subject: 'Test Execution Report', to: 'aritradas75@gmail.com'
 
 
       //commneted start
