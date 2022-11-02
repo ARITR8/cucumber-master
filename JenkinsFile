@@ -58,7 +58,7 @@ stage ('Checkout') {
         DATETIME_TAG = String.format('%tF %<tH:%<tM', java.time.LocalDateTime.now())
 
 
-emailext attachLog: true,  attachmentsPattern: '**/target/cucumber-html-reports/overview-features.html',//cucumber-html-reports/overview-features.html
+emailext attachLog: true,  attachmentsPattern: '**/cucumber-html-reports/overview-features.html',//cucumber-html-reports/overview-features.html
 presendScript: '''def reportPath = build.getWorkspace().child("test-output/emailable-report.html")
 
  msg.setContent(reportPath.readToString(), "text/html");''' , 
