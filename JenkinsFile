@@ -69,7 +69,7 @@ stage ('Checkout') {
         DATE_TAG = java.time.LocalDate.now()
         DATETIME_TAG = String.format('%tF %<tH:%<tM', java.time.LocalDateTime.now())
 
-if (${params.EmailSent== 'Yes'}) {
+if (${params.EmailSent}== 'Yes') {
        
 
 
