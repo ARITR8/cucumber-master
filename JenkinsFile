@@ -78,8 +78,8 @@ emailext attachLog: true,  attachmentsPattern: 'sample.pdf , sample.xlsx',//cucu
  //${SCRIPT, template="g.template"} ,
 body:"Dear All, <br> <br> Plese find the test report executed on: ${DATETIME_TAG}"  +
 "  <br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER}" + 
-         " <br> URL de build: ${env.BUILD_URL} " ,
- compressLog: true, subject: 'Test Execution Report',
+         " <br> URL of the build: ${env.BUILD_URL} " ,
+ compressLog: true, subject: 'Test Execution Report: Build  "${env.BUILD_STATUS}"',
 mimeType: 'text/html', to: 'aritradas75@gmail.com'
 
 
