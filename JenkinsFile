@@ -4,7 +4,7 @@ stage 'Init'
 
 properties ([ 
 
-[ $class: 'jenkins.model.BuildDiscardProperty', strategy: [ $class: 'LogRotator' , numToKeepStr: '30' , 
+[ $class: 'jenkins.model.BuildDiscarderProperty', strategy: [ $class: 'LogRotator' , numToKeepStr: '30' , 
 artifactNumToKeepStr: '30' ] ], 
 parameters(
 [ choice(choices: [ 'Yes', 'No' ], description: 'Select the email to be sent' , name: 'EmailSent') ]
