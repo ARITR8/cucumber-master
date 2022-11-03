@@ -6,7 +6,7 @@ properties ([
 
 [ $class: 'jenkins.model.BuildDiscardProperty', strategy: [ $class: 'LogRotator' , numToKeepStr: '30' , 
 artifactNumToKeepStr: '30' ] ], 
-prameters(
+parameters(
 [ choice(choices: [ 'Yes', 'No' ], description: 'Select the email to be sent' , name: 'EmailSent') ]
  )
  ])
