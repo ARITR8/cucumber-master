@@ -79,7 +79,7 @@ emailext attachLog: true,  attachmentsPattern: 'sample.pdf , sample.xlsx',//cucu
 body:"Dear All, <br> <br> Plese find the test report executed on: ${DATETIME_TAG}"  +
 "  <br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER}" + 
          " <br> URL of the build: ${env.BUILD_URL} " ,
- compressLog: true, subject: 'Test Execution Report: Build  "${env.BUILD_STATUS}"',
+ compressLog: true, subject: 'Test Execution Report: Build' +  "${env.BUILD_STATUS}",
 mimeType: 'text/html', to: 'aritradas75@gmail.com'
 
 
