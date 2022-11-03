@@ -2,6 +2,16 @@
 stage 'Init'
 
 
+properties ([ 
+
+[ $class: 'jenkins.model.BuildDiscardProperty', strategy: [ $class: 'LogRotator' , numToKeepStr: '30' , 
+artifactNumToKeepStr: '30' ] ], 
+prameters(
+[ choice(choices: [ 'Yes', 'No' ], description: 'Select the email to be sent' , name: 'EmailSent') ]
+ )
+ ])
+
+
 
 node ('xx-node') {
                     
@@ -59,6 +69,9 @@ stage ('Checkout') {
         DATE_TAG = java.time.LocalDate.now()
         DATETIME_TAG = String.format('%tF %<tH:%<tM', java.time.LocalDateTime.now())
 
+if (${params.EmailSent== 'Yes'}) {
+       
+
 
 emailext attachLog: true,  attachmentsPattern: 'sample.pdf , sample.xlsx',//cucumber-html-reports/overview-features.html
 //attachmentsPattern: 'sample.xlsx',
@@ -80,7 +93,7 @@ mimeType: 'text/html', to: 'aritradas75@gmail.com'
        //  " <br> URL de build: ${env.BUILD_URL} "  ;
          //commented end here
          
-    } 
+    }    }
     
     
     
