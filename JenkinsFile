@@ -72,7 +72,7 @@ stage ('Checkout') {
 if ("${params.EmailSent}"== 'Yes') {
        
 
-CC = 'aritradas75@gmail.com'
+CC = 'dasaditi97@gmail.com'
 emailext attachLog: true,  attachmentsPattern: 'sample.pdf , sample.xlsx',//cucumber-html-reports/overview-features.html
 //attachmentsPattern: 'sample.xlsx',
  //${SCRIPT, template="g.template"} ,
