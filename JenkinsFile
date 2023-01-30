@@ -86,7 +86,7 @@ emailext attachLog: true,  attachmentsPattern: 'sample.pdf , sample.xlsx',//cucu
 
 //------------------------
 
-body: '''${JELLY_SCRIPT,template="' + "${env.JENKINS_HOME}/email-templates/myTemplateFile.jelly".replaceAll('[\\\\]','/') + '"}''', compressLog: true, subject: "New Test", mimeType: 'text/html',
+body: '''${SCRIPT, template="my-email-template"}''', compressLog: true, subject: "New Test", mimeType: 'text/html',
  to: "aritradas75@gmail.com"
 
       //commneted start
