@@ -78,17 +78,17 @@ emailext attachLog: true,  attachmentsPattern: 'sample.pdf , sample.xlsx',//cucu
 
 //--------------------------------
  
-body:"Dear All, <br> <br> Plese find the test report executed on: ${DATETIME_TAG}"  +
-"  <br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER}" + 
-         " <br> URL of the build: ${env.BUILD_URL}  <br> Please check the attachment for detailed report. <br>Regards <br>Aritra Das" ,
- compressLog: true, subject: 'Test Execution Report: Build ' +  "${currentBuild.currentResult}",
-mimeType: 'text/html', to: "aritradas75@gmail.com , cc:${CC}"
+//body:"Dear All, <br> <br> Plese find the test report executed on: ${DATETIME_TAG}"  +
+//"  <br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER}" + 
+//         " <br> URL of the build: ${env.BUILD_URL}  <br> Please check the attachment for detailed report. <br>Regards <br>Aritra Das" ,
+// compressLog: true, subject: 'Test Execution Report: Build ' +  "${currentBuild.currentResult}",
+//mimeType: 'text/html', to: "aritradas75@gmail.com , cc:${CC}"
 
 //------------------------
 
-//body: '${FILE,path="' + "${env.JENKINS_HOME}/email-templates/xxmk.html".replaceAll('[\\\\]','/') + '"}',
-// compressLog: true, subject: "New Test", mimeType: 'text/html',
-// to: "aritradas75@gmail.com"
+body: '<p>Hi</p><p>EF ${EF_NUMBER} is waiting for Approval</p><p>${FILE,path="' + "/jobs/MyfirstPipeline/xxmk.html".replaceAll('[\\\\]','/')+'"}</p><p>Please go to console output of "<a href="${BUILD_URL}/input">${BUILD_URL}input</a>" to <font color="green"> Approve</font> or <font color="red">Reject</font> </p><p>Thank You</p><p>DEVOPS TEAM</p>',
+ compressLog: true, subject: "New Test", mimeType: 'text/html',
+ to: "aritradas75@gmail.com"
 
       //commneted start
       //   mail to: "aritradas75@gmail.com",
