@@ -86,7 +86,7 @@ emailext attachLog: true,  attachmentsPattern: 'sample.pdf , sample.xlsx',//cucu
 
 //------------------------
 
-body: '<p>Hi</p><p>EF ${EF_NUMBER} is waiting for Approval</p><p>${FILE,path="'+build.getWorkspace().child( + "test-output/emailable-report.html".replaceAll('[\\\\]','/'))+'"}</p><p>Please go to console output of "<a href="${BUILD_URL}/input">${BUILD_URL}input</a>" to <font color="green"> Approve</font> or <font color="red">Reject</font> </p><p>Thank You</p><p>DEVOPS TEAM</p>',
+body: '''${SCRIPT, template="g"}''',
  compressLog: true, subject: "New Test", mimeType: 'text/html',
  to: "aritradas75@gmail.com"
 
