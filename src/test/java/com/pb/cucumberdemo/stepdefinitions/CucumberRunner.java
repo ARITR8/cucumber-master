@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
 		
 		plugin = {"pretty", "html:target/cucumber",
-				"json:target/cucumber.json" , "junit:test-results.xml"
+				"json:target/cucumber.json" , "junit:target/surefire-reports/test-results.xml"
 				 },
 		features = {"src/test/resources/features"},
 		glue={"com.pb.cucumberdemo.stepdefinitions"},

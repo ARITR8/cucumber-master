@@ -63,7 +63,8 @@ stage ('Checkout') {
                  
                  stage('junit report') {
                                   
-                                   junit 'test-results.xml'
+                                   junit '**/target/surefire-reports/*.xml'
+  
                                   
                               }
 
