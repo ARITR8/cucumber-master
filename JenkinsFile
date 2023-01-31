@@ -60,6 +60,14 @@ stage ('Checkout') {
               
                  }
                  
+                 
+                 stage('junit report') {
+                                  
+                                   junit 'test-results.xml'
+                                  
+                              }
+
+                 
  stage ('Send Email') {
  //DATE_TAG = java.time.LocalDate.now()
         echo "Mail Stage";
