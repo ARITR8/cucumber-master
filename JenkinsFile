@@ -86,7 +86,7 @@ emailext attachLog: true,  attachmentsPattern: 'sample.pdf , sample.xlsx',//cucu
 
 //------------------------
 
-body: '''${SCRIPT, template="g.template"}''',
+body: '${File,path="' + "${env.JENKINS_HOME}/workspace/MyfirstPipeline/target/test-classes/email.html".replaceAll('[\\\\]','/') + '"}',
  compressLog: true, subject: "New Test", mimeType: 'text/html',
  to: "aritradas75@gmail.com"
 
