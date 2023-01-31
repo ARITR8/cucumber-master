@@ -78,17 +78,17 @@ emailext attachLog: true,  attachmentsPattern: 'sample.pdf , sample.xlsx',//cucu
 
 //--------------------------------
  
-body:"Dear All, <br> <br> Plese find the test report executed on: ${DATETIME_TAG}"  +
-"  <br>Project: ${env.JOB_NAME} <br>Build Number: ${env.WORKSPACE}" + 
-         " <br> URL of the build: ${env.BUILD_URL}  <br> Please check the attachment for detailed report. <br>Regards <br>Aritra Das" ,
- compressLog: true, subject: 'Test Execution Report: Build ' +  "${currentBuild.currentResult}",
-mimeType: 'text/html', to: "aritradas75@gmail.com , cc:${CC}"
+//body:"Dear All, <br> <br> Plese find the test report executed on: ${DATETIME_TAG}"  +
+//"  <br>Project: ${env.JOB_NAME} <br>Build Number: ${env.WORKSPACE}" + 
+//         " <br> URL of the build: ${env.BUILD_URL}  <br> Please check the attachment for detailed report. <br>Regards <br>Aritra Das"  ,
+// compressLog: true, subject: 'Test Execution Report: Build ' +  "${currentBuild.currentResult}",
+//mimeType: 'text/html', to: "aritradas75@gmail.com , cc:${CC}"
 
 //------------------------
 
-//body: '${FILE, path="' +    "C:/Users/Aritra/.jenkins/workspace/MyfirstPipeline/target/test-classes/email.html".replaceAll('[\\\\]','/') + '"}',
-// compressLog: true, subject: "New Test", mimeType: 'text/html',
-// to: "aritradas75@gmail.com"
+body: '''${FILE, path="' +    "C:/Users/Aritra/.jenkins/workspace/MyfirstPipeline/target/test-classes/email.html".replaceAll('[\\\\]','/') + '"}''',
+ compressLog: true, subject: "New Test", mimeType: 'text/html',
+ to: "aritradas75@gmail.com"
 
       //commneted start
       //   mail to: "aritradas75@gmail.com",
