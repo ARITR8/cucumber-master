@@ -63,15 +63,15 @@ stage ('Checkout') {
                  
                  stage('junit report') {
                  
-                 dir ('/target/surefire-reports/') {
+               
                          
                      
 
                                   
-                                   junit '**/test-results.xml'
+                                   junit 'target/surefire-reports/test-results.xml'
   
                                   
-                     }         }
+                            }
 
                  
  stage ('Send Email') {
