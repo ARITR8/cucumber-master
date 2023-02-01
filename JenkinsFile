@@ -68,7 +68,7 @@ stage ('Checkout') {
                      
 
                                   
-                                   junit '*.xml'
+                                   junit 'test-results.xml'
   
                                   
                      }         }
