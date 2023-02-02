@@ -89,7 +89,14 @@ if ("${params.EmailSent}"== 'Yes') {
 
 
 echo "vvvvvvvvvvvvvvvvvvvvvv ${currentBuild.number}"
-echo "vvvvvvvvvvvvvvvvvvvvvv ${currentBuild.currentResult}"       
+echo "vvvvvvvvvvvvvvvvvvvvvv ${currentBuild.currentResult}"      
+label = "faile"
+if ("${currentBuild.currentResult}"=="UNSTABLE") {
+
+       label = "Unstable"
+
+   }
+ 
 CC = 'aritradas75@gmail.com'
 emailext attachLog: true,  attachmentsPattern: 'sample.pdf , sample.xlsx',//cucumber-html-reports/overview-features.html,
 //attachmentsPattern: 'sample.xlsx',
@@ -106,7 +113,7 @@ emailext attachLog: true,  attachmentsPattern: 'sample.pdf , sample.xlsx',//cucu
 //------------------------
 
 body: "<b> I am FON <b>" + '''${SCRIPT,template="g.groovy"}''',
- compressLog: true, subject: '[${BUILD_STATUS}]${JOB_NAME}' , mimeType: 'text/html',
+ compressLog: true, subject: '${label}' , mimeType: 'text/html',
  to: "aritradas75@gmail.com"
 
       //commneted start
