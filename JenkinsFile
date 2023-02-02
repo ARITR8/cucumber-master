@@ -84,9 +84,6 @@ stage ('Checkout') {
         DATETIME_TAG = String.format('%tF %<tH:%<tM', java.time.LocalDateTime.now())
 
 if ("${params.EmailSent}"== 'Yes') {
-
-        //    def Lable = ${currentBuild.currentResult} == 'SUCCESS' ? 'Passed' : 'Failed'
-//def Lable = "FAiles"
        
 CC = 'aritradas75@gmail.com'
 emailext attachLog: true,  attachmentsPattern: 'sample.pdf , sample.xlsx',//cucumber-html-reports/overview-features.html,
@@ -104,7 +101,7 @@ emailext attachLog: true,  attachmentsPattern: 'sample.pdf , sample.xlsx',//cucu
 //------------------------
 
 body: '''${SCRIPT,template="groovy-html.template"}''',
- compressLog: true, subject:  "dfgdsfgdfg", mimeType: 'text/html',
+ compressLog: true, subject:  '[${BUILD_STATUS}]${JOB_NAME}', mimeType: 'text/html',
  to: "aritradas75@gmail.com"
 
       //commneted start
