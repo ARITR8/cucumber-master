@@ -84,12 +84,8 @@ stage ('Checkout') {
         DATETIME_TAG = String.format('%tF %<tH:%<tM', java.time.LocalDateTime.now())
 
 if ("${params.EmailSent}"== 'Yes') {
-def status = "Failed"
-def name = ${currentBuild.currentResult}
-if (name == "SUCCESS") {
-                
-                status = "Passed"
-            }
+
+            def Lable = ${currentBuild.currentResult} == 'SUCCESS' ? 'Passed' : 'Failed'
 
        
 CC = 'aritradas75@gmail.com'
@@ -108,7 +104,7 @@ emailext attachLog: true,  attachmentsPattern: 'sample.pdf , sample.xlsx',//cucu
 //------------------------
 
 body: '''${SCRIPT,template="groovy-html.template"}''',
- compressLog: true, subject:  '[${status}]${JOB_NAME}', mimeType: 'text/html',
+ compressLog: true, subject:  '${Lable}', mimeType: 'text/html',
  to: "aritradas75@gmail.com"
 
       //commneted start
