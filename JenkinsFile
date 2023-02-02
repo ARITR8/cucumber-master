@@ -85,8 +85,8 @@ stage ('Checkout') {
 
 if ("${params.EmailSent}"== 'Yes') {
 
-            def Lable = ${currentBuild.currentResult} == 'SUCCESS' ? 'Passed' : 'Failed'
-
+        //    def Lable = ${currentBuild.currentResult} == 'SUCCESS' ? 'Passed' : 'Failed'
+def Lable = "FAiles"
        
 CC = 'aritradas75@gmail.com'
 emailext attachLog: true,  attachmentsPattern: 'sample.pdf , sample.xlsx',//cucumber-html-reports/overview-features.html,
