@@ -89,6 +89,10 @@ if ("${params.EmailSent}"== 'Yes') {
 
 DEFAULT_SUBJECT = '$BUILD_STATUS' //== "SUCCESS" ? "yes" : "no"
 
+if ( DEFAULT_SUBJECT == "SUCCESS") {
+         
+            label = "passe"       
+     }
 
 
        
@@ -108,7 +112,7 @@ emailext attachLog: true,  attachmentsPattern: 'sample.pdf , sample.xlsx',//cucu
 //------------------------
 
 body: "<b> I am FON <b>" + '''${SCRIPT,template="g.groovy"}''',
- compressLog: true, subject:  "${DEFAULT_SUBJECT}", mimeType: 'text/html',
+ compressLog: true, subject:  "${label}", mimeType: 'text/html',
  to: "aritradas75@gmail.com"
 
       //commneted start
