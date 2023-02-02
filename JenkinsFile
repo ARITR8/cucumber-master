@@ -89,7 +89,7 @@ if ("${params.EmailSent}"== 'Yes') {
 
 
 echo "vvvvvvvvvvvvvvvvvvvvvv ${currentBuild.number}"
-       
+echo "vvvvvvvvvvvvvvvvvvvvvv ${currentBuild.currentResult}"       
 CC = 'aritradas75@gmail.com'
 emailext attachLog: true,  attachmentsPattern: 'sample.pdf , sample.xlsx',//cucumber-html-reports/overview-features.html,
 //attachmentsPattern: 'sample.xlsx',
