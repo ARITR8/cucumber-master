@@ -88,7 +88,7 @@ if ("${params.EmailSent}"== 'Yes') {
 //USED_LABEL = env.ENVIRONMENT == 'prod' ? "EC2-1" : "EC2-2"
 
 DEFAULT_SUBJECT = '$BUILD_STATUS' //== "SUCCESS" ? "yes" : "no"
-
+label = "efault"
 if ( DEFAULT_SUBJECT == "SUCCESS") {
          
             label = "passe"       
