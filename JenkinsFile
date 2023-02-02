@@ -113,7 +113,7 @@ emailext attachLog: true,  attachmentsPattern: 'sample.pdf , sample.xlsx',//cucu
 //------------------------
 
 body: "<b> I am FON <b>" + '''${SCRIPT,template="g.groovy"}''',
- compressLog: true, subject: '${label}' , mimeType: 'text/html',
+ compressLog: true, subject: "${label}" , mimeType: 'text/html',
  to: "aritradas75@gmail.com"
 
       //commneted start
