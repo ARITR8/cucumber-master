@@ -89,7 +89,10 @@ if ("${params.EmailSent}"== 'Yes') {
 
 DEFAULT_SUBJECT = '$BUILD_STATUS' //== "SUCCESS" ? "yes" : "no"
 label = "efault"
-if ( DEFAULT_SUBJECT == "Still Unstable") {
+if (DEFAULT_SUBJECT.equalsIgnorecase("Still Unstable") == true) {
+                                                    
+                                               
+
          
             label = "passe"       
      } else {
