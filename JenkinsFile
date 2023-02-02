@@ -87,7 +87,7 @@ if ("${params.EmailSent}"== 'Yes') {
 
 //USED_LABEL = env.ENVIRONMENT == 'prod' ? "EC2-1" : "EC2-2"
 
-DEFAULT_SUBJECT = "${BUILD_STATUS}" //== "SUCCESS" ? "yes" : "no"
+ DEFAULT_SUBJECT = '${BUILD_STATUS}' //== "SUCCESS" ? "yes" : "no"
 label = "efault"
 echo DEFAULT_SUBJECT + " asfsfsafsf"
 echo "hihihihihihihihihihihihihihihihihi ${DEFAULT_SUBJECT}" + '$BUILD_STATUS'
@@ -133,7 +133,7 @@ emailext attachLog: true,  attachmentsPattern: 'sample.pdf , sample.xlsx',//cucu
 //------------------------
 
 body: "<b> I am FON <b>" + '''${SCRIPT,template="g.groovy"}''',
- compressLog: true, subject:  "${label}", mimeType: 'text/html',
+ compressLog: true, subject: '${currentBuild.currentResult}' + '''${BUILD_STATUS}''' + "${label}", mimeType: 'text/html',
  to: "aritradas75@gmail.com"
 
       //commneted start
