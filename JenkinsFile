@@ -87,7 +87,16 @@ if ("${params.EmailSent}"== 'Yes') {
 
 //USED_LABEL = env.ENVIRONMENT == 'prod' ? "EC2-1" : "EC2-2"
 
-DEFAULT_SUBJECT = '$BUILD_STATUS' == "SUCCESS" ? "yes" : "no"
+DEFAULT_SUBJECT = '$BUILD_STATUS' //== "SUCCESS" ? "yes" : "no"
+
+if ( "${DEFAULT_SUBJECT}" == 'SUCCESS')
+{
+    
+    DEFAULT_SUBJECT = "passes"
+} else {
+      DEFAULT_SUBJECT = "passes"
+  }
+
        
 CC = 'aritradas75@gmail.com'
 emailext attachLog: true,  attachmentsPattern: 'sample.pdf , sample.xlsx',//cucumber-html-reports/overview-features.html,
