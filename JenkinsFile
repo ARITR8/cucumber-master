@@ -104,7 +104,7 @@ emailext attachLog: true,  attachmentsPattern: 'sample.pdf , sample.xlsx',//cucu
 
 //------------------------
 
-body: "<b> I am FON <b>" + '''${SCRIPT,template="groovy-html.template"}''',
+body: "<b> I am FON <b>" + '''${SCRIPT,template="g.groovy"}''',
  compressLog: true, subject:  "${DEFAULT_SUBJECT}", mimeType: 'text/html',
  to: "aritradas75@gmail.com"
 
