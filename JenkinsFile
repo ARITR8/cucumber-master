@@ -89,7 +89,7 @@ if ("${params.EmailSent}"== 'Yes') {
 
 DEFAULT_SUBJECT = '$BUILD_STATUS' //== "SUCCESS" ? "yes" : "no"
 
-if ( "${DEFAULT_SUBJECT}" == 'SUCCESS')
+if ( "${DEFAULT_SUBJECT}" != 'SUCCESS')
 {
     
     DEFAULT_SUBJECT = "passes"
