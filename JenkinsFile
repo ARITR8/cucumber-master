@@ -94,7 +94,7 @@ if ( "${DEFAULT_SUBJECT}" == 'SUCCESS')
     
     DEFAULT_SUBJECT = "passes"
 } else {
-      DEFAULT_SUBJECT = "passes"
+      DEFAULT_SUBJECT = "Failes"
   }
 
        
