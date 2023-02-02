@@ -87,7 +87,7 @@ if ("${params.EmailSent}"== 'Yes') {
 
 //USED_LABEL = env.ENVIRONMENT == 'prod' ? "EC2-1" : "EC2-2"
 
-def DEFAULT_SUBJECT =  "${currentBuild.currentResult}" //== "SUCCESS" ? "yes" : "no"
+def DEFAULT_SUBJECT =   currentBuild.currentResult //== "SUCCESS" ? "yes" : "no"
 label = "efault"
 echo DEFAULT_SUBJECT + " asfsfsafsf"
 echo "hihihihihihihihihihihihihihihihihi ${DEFAULT_SUBJECT}" + '$BUILD_STATUS' + "${currentBuild.currentResult}" + '"${currentBuild.currentResult}"'
