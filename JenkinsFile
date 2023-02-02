@@ -90,15 +90,15 @@ if ("${params.EmailSent}"== 'Yes') {
 DEFAULT_SUBJECT = '$BUILD_STATUS' //== "SUCCESS" ? "yes" : "no"
 label = "efault"
 echo DEFAULT_SUBJECT + " asfsfsafsf"
-echo "hihihihihihihihihihihihihihihihihi${DEFAULT_SUBJECT}"
+echo "hihihihihihihihihihihihihihihihihi ${DEFAULT_SUBJECT}" + '$BUILD_STATUS'
 
 if ("${DEFAULT_SUBJECT}" != "IAM") {
                           echo "NOT I AM"       
                             }
                             
                             
- if ("${DEFAULT_SUBJECT}" != "SUCCESS") {
-                          echo "NOT I AM SUCCESS"       
+ if ('$BUILD_STATUS' == "Still Unstable") {
+                          echo "I AM SUCCESS"       
                             }                           
 
 
