@@ -103,7 +103,7 @@ emailext attachLog: true,  attachmentsPattern: 'sample.pdf , sample.xlsx',//cucu
 //------------------------
 
 body: '''${SCRIPT,template="groovy-html.template"}''',
- compressLog: true, subject:  '[${BUILD_STATUS}]${currentBuild.currentResult}', mimeType: 'text/html',
+ compressLog: true, subject:  "${buildResults.toString()}", mimeType: 'text/html',
  to: "aritradas75@gmail.com"
 
       //commneted start
