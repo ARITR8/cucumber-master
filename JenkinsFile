@@ -87,45 +87,8 @@ if ("${params.EmailSent}"== 'Yes') {
 
 //USED_LABEL = env.ENVIRONMENT == 'prod' ? "EC2-1" : "EC2-2"
 
-def DEFAULT_SUBJECT =   "{currentBuild.result}" //== "SUCCESS" ? "yes" : "no"
-label = "efault"
-echo DEFAULT_SUBJECT + " asfsfsafsf"
-echo "hihihihihihihihihihihihihihihihihi ${DEFAULT_SUBJECT}" + '$BUILD_STATUS' + "${currentBuild.currentResult}" + '"${currentBuild.currentResult}"'
 
-"{currentBuild.result}"
-//CURRENT_BUILD_STATUS=$(curl --silent ${BUILD_URL}api/json | jq -r '.result')
-
-if ("$CURRENT_BUILD_STATUS" == "SUCCESS") {
-                                  
-                                  echo "who am i"
-                              }
-
-
-
-if ("${DEFAULT_SUBJECT}" != "IAM") {
-                          echo "NOT I AM"       
-                            }
-                            
-                            
- if ('$BUILD_STATUS' == "Still Unstable") {
-                          echo "I AM SUCCESS"       
-                            }                           
-
-
-//if (host == "host.domain.com")
-if (DEFAULT_SUBJECT != "SUCCESS" ) {
-                                                    
-                                               
-        
-         
-            label = "passe"       
-     } else {
-           
-           label = "jhkjhkjk"
-       }
-
-
-
+echo "vvvvvvvvvvvvvvvvvvvvvv ${currentBuild.number}"
        
 CC = 'aritradas75@gmail.com'
 emailext attachLog: true,  attachmentsPattern: 'sample.pdf , sample.xlsx',//cucumber-html-reports/overview-features.html,
