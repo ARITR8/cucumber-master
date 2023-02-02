@@ -89,10 +89,24 @@ if ("${params.EmailSent}"== 'Yes') {
 
 DEFAULT_SUBJECT = '$BUILD_STATUS' //== "SUCCESS" ? "yes" : "no"
 label = "efault"
-if (DEFAULT_SUBJECT.equalsIgnorecase("Still Unstable") == true) {
+
+echo "hihihihihihihihihihihihihihihihihi${DEFAULT_SUBJECT}"
+
+if ("${DEFAULT_SUBJECT}" != "IAM") {
+                          echo "NOT I AM"       
+                            }
+                            
+                            
+ if ("${DEFAULT_SUBJECT}" != "SUCCESS") {
+                          echo "NOT I AM SUCCESS"       
+                            }                           
+
+
+//if (host == "host.domain.com")
+if (DEFAULT_SUBJECT != "SUCCESS" ) {
                                                     
                                                
-
+        
          
             label = "passe"       
      } else {
